@@ -97,18 +97,17 @@ console.log(reduce(array, add, 0));
 
 //Extension 3
 function intersection(arrays) {
-    let ans;
-    let arr = arrays.flat();
-    ans = arr.reduce((acc, cv, index) => {
-      
-      if(arr.indexOf(cv,index+1)!= -1 && !acc.includes(cv)) {
-        acc.push(cv);
-      }
-      return acc;
-    }, []);
-   return ans;
+  let ans;
+  let arr = arrays.flat();
+  ans = arr.reduce((acc, cv, index) => {
+    
+    if(arrays.every(el => el.includes(cv)) && !acc.includes(cv) ) {
+      acc.push(cv);
+    }
+    return acc;
+  }, []);
+ return ans;
 }
-
 // console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
 // should log: [5, 15]
 
