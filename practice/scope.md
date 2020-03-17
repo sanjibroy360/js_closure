@@ -70,7 +70,8 @@ fucntion addOne(num){
 var two = addOne(1);
 console.log(two);
 
-// Output : 
+// Output : 1
+//          2
 ```
 
 6. Make a Execution Context Diagram for the following JS and write the output.
@@ -82,6 +83,9 @@ const addOne = num => {
 };
 var two = addOne(1);
 console.log(two);
+
+// Output: addOne is not defined.
+//         2
 ```
 
 7. Make a Execution Context Diagram for the following JS and write the output.
@@ -350,6 +354,7 @@ sample("First", "Second", "Third");
 26. Guess the output and the reason behind that.
 
 ```js
+
 if (true) {
   const myFunc = function() {
     console.log(username, "Second");
@@ -365,11 +370,13 @@ if (true) {
 //         "Second"
 
 // let does not initialize variable during declaration phase. As we can't use any uninitialized variable that's why it'll throw an error.
+
 ```
 
 27. Guess the output and the reason behind that.
 
 ```js
+
 function outer() {
   let movie = "Mad Max: Fury Road";
   function inner() {
@@ -383,11 +390,13 @@ outer();
 // Output: "I love this movie called MAD MAX: FURY ROAD"
 
 // Because of closure it gets the value of movie.
+
 ```
 
 28. Guess the output and the reason behind that.
 
 ```js
+
 function outer() {
   let movie = "Mad Max: Fury Road";
   function inner() {
@@ -402,11 +411,13 @@ outer();
 // Output: "I love this movie called Before Sunrise"
 
 // inner function will search its memory first.
+
 ```
 
 29. Guess the output and the reason behind that.
 
 ```js
+
 function outer() {
   let movie = "Mad Max: Fury Road";
   function inner() {
