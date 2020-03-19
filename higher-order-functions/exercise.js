@@ -126,37 +126,40 @@ function union(arrays) {
    return ans;
 }
 
-// console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 
 //Extension 5
+
 function objOfMatches(array1, array2, callback) {
 
-    let obj = callback(array1, array2);
-    return obj;
+  let obj = callback(array1, array2);
+  return obj;
 }
-  
-  function getObj(array1, array2) {
+
+function getObj(array1, array2) {
+    
+    
+    return array1.reduce( (acc, cv) => {
+    
+    for(let i = 0; i < array2.length; i++) {
       
-      let copyArray2 = array2.map(el => el.toUpperCase());
-      
-      return array1.reduce( (acc, cv) => {
-      let pos = copyArray2.indexOf(cv.toUpperCase());
-        
-      if(pos !== -1 && !Object.keys(acc).includes(cv)) {
-        acc[cv] = array2[pos];
+      if(cv.toUpperCase() == array2[i]) {
+        acc[cv] = array2[i];
+        break;
       }
-        
-      return acc;
-    },{});
       
-  }
-  
-  
-  let array1 = ['hi', 'howdy', 'bye', 'later', 'hello'];
-  let array2 = ['HI', 'Howdy', 'BYE', 'LATER', 'hello'];
-  
-  console.log(objOfMatches(array1, array2, getObj));
+    }
+      
+    return acc;
+  },{});
+    
+}
+
+let array1 = ['hi', 'howdy', 'bye', 'later', 'hello'];
+let array2 = ['HI', 'Howdy', 'BYE', 'LATER', 'hello'];
+
+console.log(objOfMatches(array1, array2, getObj));
+
 
 // console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy', 'BYE', 'LATER', 'hello'], function(str) { return str.toUpperCase(); }));
 // should log: { hi: 'HI', bye: 'BYE', later: 'LATER' }
